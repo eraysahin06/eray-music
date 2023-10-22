@@ -21,7 +21,7 @@ const Register = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/register',
+        'http://localhost:5000/api/users/register',
         data
       );
 
