@@ -27,6 +27,7 @@ const Register = () => {
 
       if (response.status === 201) {
         localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
         setRegistrationMessage('Registration successful.');
         navigate('/');
       } else if (response.status === 409) {

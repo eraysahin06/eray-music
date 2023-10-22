@@ -10,6 +10,7 @@ import './index.css';
 import Login from './components/Login';
 import Contact from './components/Contact';
 import Register from './components/Register';
+import AdminAddSong from './components/AdminAddSong';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/add-song',
+    element: <AdminAddSong />,
   },
 ]);
 

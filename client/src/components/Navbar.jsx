@@ -1,18 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import admins from '../admins';
 
 const Navbar = () => {
   const userName = localStorage.getItem('userName');
   const token = localStorage.getItem('token');
+  const userEmail = localStorage.getItem('userEmail');
 
   const handleLogout = () => {
     // Clear user-related data from local storage
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
 
     // Refresh the page after logging out
     window.location.reload();
   };
+  
+  const isAdmin = admins.includes(userEmail);
+  console.log('userEmail:', userEmail);
+  console.log('admins:', admins);
+  console.log('isAdmin:', isAdmin);
 
   return (
     <nav className="bg-blue-500 p-4">
@@ -62,6 +70,15 @@ const Navbar = () => {
                   className="bg-gray-500 border border-gray-700 hover-bg-gray-700 text-white font-bold py-2 px-2 rounded"
                 >
                   Register
+                </Link>
+              </li>
+            </>
+          )}
+          {isAdmin && (
+            <>
+              <li>
+                <Link to="/add-song" className="text-white">
+                  + Add Song
                 </Link>
               </li>
             </>

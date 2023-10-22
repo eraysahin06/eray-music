@@ -26,6 +26,7 @@ const Login = () => {
         console.log('Login successful.');
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userName', response.data.name);
+        localStorage.setItem('userEmail', email);
         navigate('/');
       } else if (response.status === 401) {
         console.log('Incorrect password');
