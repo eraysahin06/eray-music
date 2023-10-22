@@ -2,6 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const userName = localStorage.getItem('userName');
+  const token = localStorage.getItem('token');
+
+  const handleLogout = () => {
+    // Clear user-related data from local storage
+    localStorage.removeItem('userName');
+    localStorage.removeItem('token');
+
+    // Refresh the page after logging out
+    window.location.reload();
+  };
+
   return (
     <nav className="bg-blue-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -19,14 +31,41 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-          <li>
-            <Link
-              to="/login"
-              className="bg-blue-500 border border-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-            >
-              Login
-            </Link>
-          </li>
+          {userName && token ? (
+            <>
+              <li>
+                <span className="text-green-500 font-bold">{userName}</span>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  type="button"
+                  className="bg-red-500 border border-red-700 hover:bg-red-700 px-2 text-white font-bold rounded"
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link
+                  to="/login"
+                  className="bg-blue-500 border border-blue-700 hover-bg-blue-700 text-white font-bold py-2 px-2 rounded"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/register"
+                  className="bg-gray-500 border border-gray-700 hover-bg-gray-700 text-white font-bold py-2 px-2 rounded"
+                >
+                  Register
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

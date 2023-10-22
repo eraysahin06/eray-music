@@ -2,10 +2,15 @@ import React from 'react';
 import Navbar from './Navbar';
 
 const Home = () => {
+  const userName = localStorage.getItem('userName');
+
   return (
     <div>
       <Navbar />
-      <h1>Hello from home page</h1>
+      {userName && (
+        // Only display the greeting if a user is logged in
+        <p>Hello, {userName}</p>
+      )}
     </div>
   );
 };
