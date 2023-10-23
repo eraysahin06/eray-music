@@ -4,9 +4,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 const AdminAddSong = () => {
-  const [youtubeLink, setYoutubeLink] = useState('');
+  const [soundCloudLink, setSoundCloudLink] = useState('');
   const [songName, setSongName] = useState('');
   const [description, setDescription] = useState('');
+  const [genre, setGenre] = useState('Phonk');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -14,9 +15,10 @@ const AdminAddSong = () => {
 
     try {
       const data = {
-        youtubeLink,
+        soundCloudLink,
         songName,
         description,
+        genre,
       };
 
       const response = await axios.post(
@@ -45,18 +47,18 @@ const AdminAddSong = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
-                htmlFor="youtubeLink"
+                htmlFor="soundCloudLink"
                 className="block text-gray-600 text-sm font-medium mb-2"
               >
-                YouTube Link (src only)
+                SoundCloud Link (Track Number Only example: /track/[...])
               </label>
               <input
                 type="text"
-                id="youtubeLink"
+                id="soundCloudLink"
                 className="w-full p-2 border rounded"
                 placeholder="Enter the YouTube link"
-                value={youtubeLink}
-                onChange={(e) => setYoutubeLink(e.target.value)}
+                value={soundCloudLink}
+                onChange={(e) => setSoundCloudLink(e.target.value)}
                 required
               />
             </div>
@@ -92,6 +94,26 @@ const AdminAddSong = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="genre"
+                className="block text-gray-600 text-sm font-medium mb-2"
+              >
+                Genre
+              </label>
+              <select
+                id="genre"
+                className="w-full p-2 border rounded"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+              >
+                <option value="Phonk">Phonk</option>
+                <option value="Remix">Remix</option>
+                <option value="Remix">EDM</option>
+                <option value="Remix">EDM (Remix)</option>
+                <option value="Remix">Other</option>
+              </select>
             </div>
             <div className="flex flex-col gap-3">
               <button

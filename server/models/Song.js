@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const songSchema = new mongoose.Schema({
-  youtubeLink: {
+  soundCloudLink: {
     type: String,
     required: true,
   },
@@ -14,6 +14,10 @@ const songSchema = new mongoose.Schema({
     required: true,
   },
   description: {
+    type: String,
+    required: true,
+  },
+  genre: {
     type: String,
     required: true,
   },

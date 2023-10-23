@@ -10,14 +10,15 @@ const getAllSongs = async (req, res) => {
 };
 
 const createSong = async (req, res) => {
-  const { youtubeLink, songName, description, likeCount } = req.body;
+  const { soundCloudLink, songName, description, likeCount, genre } = req.body;
 
   try {
     const newSong = new Song({
-      youtubeLink,
+      soundCloudLink,
       songName,
       description,
       likeCount,
+      genre
     });
 
     const savedSong = await newSong.save();

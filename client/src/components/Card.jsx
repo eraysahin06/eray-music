@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -32,7 +32,7 @@ const Card = ({ loggedIn, song }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="max-w-md mx-auto bg-gray-200 rounded-xl shadow-md overflow-hidden p-4">
       <div className="p-8">
         <Link
           to="#"
@@ -42,30 +42,30 @@ const Card = ({ loggedIn, song }) => {
         </Link>
         <div className="mt-2">
           <iframe
+            title={song.songName}
+            key={song._id}
             width="100%"
-            height="315"
-            src={song.youtubeLink}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
+            height="300"
+            allow="autoplay"
+            src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${song.soundCloudLink}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true`}
           ></iframe>
         </div>
-        <p className="mt-2 text-gray-500">{song.description}</p>
+      </div>
+      <p className="mt-2 text-gray-700">{song.description}</p>
 
-        <div className="mt-4">
-          {loggedIn && (
-            <button
-              onClick={handleLikeClick}
-              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
-                liked ? 'bg-red-500' : ''
-              }`}
-            >
-              {liked ? 'Unlike' : 'Like'}
-            </button>
-          )}
+      <div className="mt-4">
+        {loggedIn && (
+          <button
+            onClick={handleLikeClick}
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+              liked ? 'bg-red-500' : ''
+            }`}
+          >
+            {liked ? 'Unlike' : 'Like'}
+          </button>
+        )}
 
-          <span className="ml-2 text-gray-600">{likeCount} Likes</span>
-        </div>
+        <span className="ml-2 text-gray-600">{likeCount} Likes</span>
       </div>
     </div>
   );
