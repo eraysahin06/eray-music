@@ -26,7 +26,7 @@ const Navbar = () => {
           to="/"
           className="text-white text-2xl font-bold flex flex-row justify-center align-center gap-3"
         >
-          <SiMusicbrainz className="mt-1" /> <span>Eray Music</span>
+          <SiMusicbrainz className="mt-1" /> <span>ErayTunes</span>
         </Link>
         <div className="md:hidden">
           {menuOpen ? (

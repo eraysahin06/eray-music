@@ -50,9 +50,11 @@ const Songs = () => {
             <h2 className="p-2 text-3xl font-bold text-center my-4 text-blue-500">
               {genre}
             </h2>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center">
               {songsByGenre[genre].map((song) => (
-                <Card key={song._id} loggedIn={loggedIn} song={song} />
+                <div key={song._id} className="w-full sm:w-1/2  p-2">
+                  <Card loggedIn={loggedIn} song={song} />
+                </div>
               ))}
             </div>
           </div>

@@ -110,9 +110,9 @@ const AdminAddSong = () => {
               >
                 <option value="Phonk">Phonk</option>
                 <option value="Remix">Remix</option>
-                <option value="Remix">EDM</option>
-                <option value="Remix">EDM (Remix)</option>
-                <option value="Remix">Other</option>
+                <option value="EDM">EDM</option>
+                <option value="EDM (Remix)">EDM (Remix)</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div className="flex flex-col gap-3">

@@ -18,7 +18,7 @@ const createSong = async (req, res) => {
       songName,
       description,
       likeCount,
-      genre
+      genre,
     });
 
     const savedSong = await newSong.save();
@@ -73,9 +73,30 @@ const unlikeSong = async (req, res) => {
   }
 };
 
+const deleteSong = async (req, res) => {
+  const { songId } = req.params;
+
+  try {
+    // Find the song by its ID
+    const song = await Song.findById(songId);
+
+    if (!song) {
+      return res.status(404).json({ message: 'Song not found' });
+    }
+
+    // Delete the song
+    await Song.findByIdAndDelete(songId);
+
+    return res.status(200).json({ message: 'Song deleted successfully' });
+  } catch (error) {
+    return res.status(500).json({ message: 'Server error', error });
+  }
+};
+
 module.exports = {
   getAllSongs,
   createSong,
   likeSong,
   unlikeSong,
+  deleteSong,
 };
