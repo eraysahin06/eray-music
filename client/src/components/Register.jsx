@@ -21,7 +21,7 @@ const Register = () => {
       };
 
       const response = await axios.post(
-        'https://eray-music.vercel.app/api/users/register',
+        'http://localhost:5000/api/users/register',
         data
       );
 

@@ -14,9 +14,7 @@ const Card = ({ loggedIn, song }) => {
     if (!liked) {
       try {
         // Send a POST request to like the song
-        await axios.post(
-          `https://eray-music.vercel.app/api/songs/like/${song._id}`
-        );
+        await axios.post(`http://localhost:5000/api/songs/like/${song._id}`);
         // Update the like count in the state
         setLikeCount(likeCount + 1);
       } catch (error) {
@@ -25,9 +23,7 @@ const Card = ({ loggedIn, song }) => {
     } else {
       try {
         // Send a POST request to unlike the song
-        await axios.post(
-          `https://eray-music.vercel.app/api/songs/unlike/${song._id}`
-        );
+        await axios.post(`http://localhost:5000/api/songs/unlike/${song._id}`);
         // Update the like count in the state
         setLikeCount(likeCount - 1);
       } catch (error) {
@@ -42,7 +38,7 @@ const Card = ({ loggedIn, song }) => {
   const handleDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the song
-      await axios.delete(`https://eray-music.vercel.app/api/songs/${song._id}`);
+      await axios.delete(`http://localhost:5000/api/songs/${song._id}`);
       window.location.reload();
     } catch (error) {
       console.error('Error deleting the song: ', error);

@@ -9,7 +9,7 @@ const Songs = () => {
 
   useEffect(() => {
     axios
-      .get('https://eray-music.vercel.app/api/songs')
+      .get('http://localhost:5000/api/songs')
       .then((response) => {
         setSongs(response.data.songs);
       })
