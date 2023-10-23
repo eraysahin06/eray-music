@@ -18,7 +18,7 @@ const Login = () => {
       };
 
       const response = await axios.post(
-        'https://eray-music.vercel.app//api/users/login',
+        'https://eray-music.vercel.app/api/users/login',
         data
       );
 

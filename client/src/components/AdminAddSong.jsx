@@ -22,7 +22,7 @@ const AdminAddSong = () => {
       };
 
       const response = await axios.post(
-        'https://eray-music.vercel.app//api/songs',
+        'https://eray-music.vercel.app/api/songs',
         data
       );
 
