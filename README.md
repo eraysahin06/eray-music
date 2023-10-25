@@ -1,6 +1,6 @@
 # ErayTunes
 
-ErayTunes is a web application for showcasing and sharing original songs created by me, featuring React, Node.js, Express.js, REST APIs, and React Router Dom.
+ErayTunes is a web application for showcasing and sharing original songs created by me, featuring React, Node.js, Express.js, MongoDB REST APIs, and React Router Dom.
 
 ![ErayTunes Main](https://i.ibb.co/QmvW2Dq/Eray-Tunes-Main.jpg)
 
